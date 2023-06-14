@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../Style/login.css">
+    <script src="https://kit.fontawesome.com/db912bbc14.js" crossorigin="anonymous"></script>
+    <script src="../Scripts/login.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-toggle">
+                <button id="login-toggle" class="toggle-btn active" onclick="toggleForm('login')">Login</button>
+                <button id="signup-toggle" class="toggle-btn" onclick="toggleForm('signup')">Sign Up</button>
+            </div>
+            <div id="login-form" class="form">
+                <h2>Login</h2>
+                <form id="loginFrom">
+                    <input type="text" placeholder="Username">
+                    <input type="password" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>
+                <div class="google-login">
+                    <button class="google-btn"><i class="fa-brands fa-google"></i>Sign in with Google</button>
+                </div>
+            </div>
+            <div id="signup-form" class="form active">
+                <h2>Sign Up</h2>
+                <form signUpForm>
+                    <input type="text" placeholder="Username">
+                    <input type="password" placeholder="Password">
+                    <input type="email" placeholder="Email">
+                    <button type="submit">Sign Up</button>
+                </form>
+                <div class="google-login">
+                    <a class="google-btn"><i class="fa-brands fa-google"></i>
+                        Sign up with Google</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
