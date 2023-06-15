@@ -1,18 +1,26 @@
-function toggleForm(formType) {
-	var loginForm = document.getElementById("login-form");
-	var signupForm = document.getElementById("signup-form");
-	var loginToggle = document.getElementById("login-toggle");
-	var signupToggle = document.getElementById("signup-toggle");
-
-	if (formType === "login") {
-		loginForm.style.display = "flex";
-		signupForm.style.display = "none";
-		loginToggle.classList.add("active");
-		signupToggle.classList.remove("active");
-	} else if (formType === "signup") {
-		loginForm.style.display = "none";
-		signupForm.style.display = "flex";
-		loginToggle.classList.remove("active");
-		signupToggle.classList.add("active");
+$(".outline").on("click", function (e) {
+	e.preventDefault();
+	let id = $(this).attr("name");
+	if (id === "login") {
+		$("form").animate(
+			{
+				right: null,
+				left: "440px",
+			},
+			"swing"
+		);
+		$("input[name*='Name']").fadeOut("slow").slideUp("slow");
+		$(".formButton").text("Login");
+		$("#heading").text("Login");
+		// $("#heading").att("Login");
+	} else if (id === "signup") {
+		$("form").animate({
+			left: null,
+			right: "440px",
+		});
+		$("input[name*='Name']").fadeIn("slow").slideDown("slow");
+		$(".formButton").text("Sign Up");
+		$("#heading").text("Sign Up");
+		// $("#heading").key("Sign Up");
 	}
-}
+});

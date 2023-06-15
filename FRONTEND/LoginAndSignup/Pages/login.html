@@ -1,45 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../Style/login.css">
-    <script src="https://kit.fontawesome.com/db912bbc14.js" crossorigin="anonymous"></script>
-    <script src="../Scripts/login.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Style/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/7fd035bd33.js" crossorigin="anonymous"></script>
+    <title>Login | Learning Point</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="form-container">
-            <div class="form-toggle">
-                <button id="login-toggle" class="toggle-btn active" onclick="toggleForm('login')">Login</button>
-                <button id="signup-toggle" class="toggle-btn" onclick="toggleForm('signup')">Sign Up</button>
+        <form action="" id="mainForm">
+            <h1 id="heading">Sign Up</h1>
+            <input type="text" name="firstName" value="" placeholder="First Name">
+            <input type="text" name="lastName" value="" placeholder="Last Name">
+            <input type="email" name="email" value="" placeholder="Email">
+            <input type="password" name="password" value="" placeholder="Password">
+            <!-- <input class="formButton" type="submit" value="Sign Up"> -->
+            <button id="formButton" class="formButton">Sign Up</button>
+        </form>
+
+        <div class="sections">
+
+            <div class="signup">
+                <p>Not with us? Sign up Now!</p>
+                <button type="button" name="signup" class="outline">Sign Up</button>
             </div>
-            <div id="login-form" class="form">
-                <h2>Login</h2>
-                <form id="loginFrom">
-                    <input type="text" placeholder="Username">
-                    <input type="password" placeholder="Password">
-                    <button type="submit">Login</button>
-                </form>
-                <div class="google-login">
-                    <button class="google-btn"><i class="fa-brands fa-google"></i>Sign in with Google</button>
-                </div>
-            </div>
-            <div id="signup-form" class="form active">
-                <h2>Sign Up</h2>
-                <form signUpForm>
-                    <input type="text" placeholder="Username">
-                    <input type="password" placeholder="Password">
-                    <input type="email" placeholder="Email">
-                    <button type="submit">Sign Up</button>
-                </form>
-                <div class="google-login">
-                    <a class="google-btn"><i class="fa-brands fa-google"></i>
-                        Sign up with Google</a>
-                </div>
+
+            <div class="login">
+                <p>Already have an account?</p>
+                <button type="button" name="login" class="outline">Login</button>
             </div>
         </div>
+
     </div>
+
 </body>
+<script src="../Scripts/login.js"></script>
+<script src="../Scripts/login-attempt.js"></script>
 
 </html>
