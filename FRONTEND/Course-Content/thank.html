@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+        }
+
+        img {
+            width: 420px;
+            height: auto;
+            margin-bottom: 20px;
+            animation: fadein 2s ease;
+        }
+
+        h1 {
+            font-size: 34px;
+            color: #333;
+            text-align: center;
+            animation: fadein 2s ease, scale 1s infinite alternate;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scale {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://th.bing.com/th/id/OIP.uKy33YGcHL1-Wbo66uNr4gHaHN?w=177&h=180&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Success">
+    <h1>Course Added Successfully</h1>
+</body>
+</html>
+<script>
+    setTimeout(function() {
+        window.location.href = "./index.html";
+    }, 5000);
+
+
+    // Add event listener for beforeunload
+window.addEventListener('beforeunload', function (e) {
+  // Cancel the event
+  e.preventDefault();
+  // Chrome requires the returnValue property to be set
+  e.returnValue = '';
+
+  // Show the popup message
+  var message = 'Are you sure you want to leave?';
+  e.returnValue = message; // This is for older browsers that don't support the custom message
+
+  return message;
+});
+</script>
