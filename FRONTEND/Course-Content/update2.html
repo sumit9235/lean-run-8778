@@ -240,10 +240,10 @@
   
        <h3>What will students learn in your course?</h3>
        <p>You must enter at least 4 learning objectives or outcomes <br> that learners can expect to achieve after completing your course.</p>
-       <input type="text" placeholder="Example: Define the roles and responsibilities of a project manager">
-       <input type="text" placeholder="Example: Estimate project timelines and budgets">
-       <input type="text" placeholder="Example: Identify and manage project risks">
-       <input type="text" placeholder="Example: Complete a case study to manage a project from conception to completion">
+       <input type="text" class="studentlearn1" placeholder="Example: Define the roles and responsibilities of a project manager">
+       <input type="text" class="studentlearn2" placeholder="Example: Estimate project timelines and budgets">
+       <input type="text" class="studentlearn3" placeholder="Example: Identify and manage project risks">
+       <input type="text" class="studentlearn4" placeholder="Example: Complete a case study to manage a project from conception to completion">
     </div>
 
     <div class="form2">
@@ -251,7 +251,7 @@
         <p>List the required skills, experience, tools or equipment learners should have prior to taking your course.
             If there are no requirements, use this space as an opportunity to lower the barrier for beginners.</p>
 
-            <input type="text" placeholder="Example: No programming experience needed. You will learn everything you need to know">
+            <input type="text" class="form21" placeholder="Example: No programming experience needed. You will learn everything you need to know">
     </div>
 
     <div class="form3">
@@ -259,33 +259,33 @@
         <p>Write a clear description of the intended learners for your course who will find your course content valuable.
             This will help you attract the right learners to your course.</p>
 
-            <input type="text" placeholder="Example: Beginner Python developers curious about data science">
+            <input type="text" class="form31" placeholder="Example: Beginner Python developers curious about data science">
     </div>
 
     <div class="form4">
         <h3>One Last Final Form To Be Filled</h3>
-       <input type="text" placeholder="Enter Video Title">
-       <input type="text" placeholder="Enter video Language">
-       <input type="text" placeholder="How many hours in total video is?">
+       <input type="text" class="title" placeholder="Enter Video Title">
+       <input type="text" class="language" placeholder="Enter video Language">
+       <input type="text" class="length" placeholder="How many hours in total video is?">
+       <input type="text" class="price" placeholder="Price of Your Course">
        <div class="tooltip">
-        <input type="text" placeholder="Paste the Video URL">
+        <input type="text" class="videourl" placeholder="Paste the Video URL">
         <span class="tooltiptext">To upload a video, you have the option to use your own Google Drive or YouTube.  When uploading the video to YouTube, please select the "unlisted" option. Once uploaded, please submit the accessible link here, ensuring that the link can be accessed by everyone.</span>
-     
+        <input type="text" class="thumbnail" placeholder="Paste the Thumbnail URL">
     </div>
     <a href="https://drive.google.com" class="drive">Visit G-Drive</a>
     <a href="https://www.youtube.com/">Visit Youtube</a>
-       <select name="" id="" title="Choose Category">
+       <select name="" id="category" title="Choose Category">
         <option value="">Choose Category</option>
-        <option value="development">Development</option>
-        <option value="business">Business</option>
-        <option value="it">IT & Software</option>
-        <option value="personalDevelopment">Personal Development</option>
-        <option value="design">Design</option>
-        <option value="marketing">Marketing</option>
-        <option value="lifestyle">LifeStyle</option>
-        <option value="music">Music</option>
+        <option value="python">Python</option>
+        <option value="excel">Excel</option>
+        <option value="webDevelopment">Web Development</option>
+        <option value="javascript">Javascript</option>
+        <option value="dataScience">Data science</option>
+        <option value="amazonAWS">Amazon AWS</option>
+        <option value="drawing">Drawing</option>
        </select>
-       <textarea name="description" id="" cols="30" rows="10" placeholder="Enter Long Description about your course"></textarea>
+       <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter Long Description about your course"></textarea>
        
     </div>
 
@@ -300,6 +300,22 @@
         const inputFields = document.querySelectorAll('input[type="text"], textarea');
         const continueBtn = document.getElementById('continueBtn');
 
+        const studentlearn1 = document.querySelector(".studentlearn1")
+        const studentlearn2 = document.querySelector(".studentlearn2")
+        const studentlearn3 = document.querySelector(".studentlearn3")
+        const studentlearn4 = document.querySelector(".studentlearn4")
+        const prerequisitesel = document.querySelector(".form21")
+        const courseFor = document.querySelector(".form31")
+        const title = document.querySelector(".title")
+        const language = document.querySelector(".language")
+        const lengthel = document.querySelector(".length")
+        const price = document.querySelector(".price")
+        const videourl = document.querySelector(".videourl")
+        const thumbnail = document.querySelector(".thumbnail")
+        const category = document.querySelector("#category")
+        const description = document.querySelector("#description")
+
+    const token = JSON.parse(localStorage.getItem("token"))
         function checkInputFields() {
             let allFilled = true;
             inputFields.forEach((field) => {
@@ -313,7 +329,42 @@
 
         continueBtn.addEventListener('click', function () {
             console.log("Clicked");
-            window.location.href = './thank.html';
+         
+            let obj = {
+                studentLearn1:studentlearn1.value,
+                studentLearn2: studentlearn2.value,
+                studentLearn3: studentlearn3.value,
+                studentLearn4: studentlearn4.value,
+                prerequisites:prerequisitesel.value,
+                courseFor: courseFor.value,
+                videoTitle: title.value,
+                videoLanguage: language.value,
+                videoHours: lengthel.value,
+                videoUrl: videourl.value,
+                videoPrice: price.value,
+                thumbnail: thumbnail.value,
+                videoCategory: category.value,
+                videoDescription: description.value,                 
+            }
+
+            fetch("http://localhost:8080/courses/add", {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json",
+                    "Authorization": token
+                },
+                body: JSON.stringify(obj)
+            })
+            .then((res)=> res.json())
+            .then((data)=>{
+                console.log(data);
+                alert("Courses added successfully")
+            })
+            .catch((err)=>{
+                  console.log(err);
+            })
+
+            // window.location.href = './thank.html';
         });
 
         inputFields.forEach((field) => {
