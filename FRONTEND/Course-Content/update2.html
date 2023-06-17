@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-<style>
-
-.main {
+    <style>
+        .main {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -96,6 +96,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -106,6 +107,7 @@
             from {
                 opacity: 1;
             }
+
             to {
                 opacity: 0;
             }
@@ -115,6 +117,7 @@
             from {
                 transform: scaleX(0);
             }
+
             to {
                 transform: scaleX(1);
             }
@@ -158,147 +161,172 @@
         }
 
         .button {
-    padding: 10px 20px;
-    background-color: #FF6600;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.3s;
-    margin-top: 1em;
-}
+            padding: 10px 20px;
+            background-color: #FF6600;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+            margin-top: 1em;
+        }
 
-.button.active {
-    opacity: 1;
-    background-color: #FF6600;
-}
+        .button.active {
+            opacity: 1;
+            background-color: #FF6600;
+        }
 
-.button.active:hover {
-    background-color: darkorange;
-}
+        .button.active:hover {
+            background-color: darkorange;
+        }
 
 
-.tooltip {
-    width: 100%;
-    position: relative;
-    display: inline-block;
-  }
+        .tooltip {
+            width: 100%;
+            position: relative;
+            display: inline-block;
+        }
 
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 460px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 460px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
 
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
-   .drive{
-    margin-right: 20px;
-  }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
 
-  .tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #333 transparent transparent transparent;
-  }
-  
-</style>
+        .drive {
+            margin-right: 20px;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+    </style>
 
 </head>
 
 
 <body>
     <div class="main">
-   
-   <h1 class="heading fade-in animate">Plan Your Course</h1>
- <!-- <p class="heading fade-in animate">The following descriptions will be publicly visible on your Course Landing Page and will have a direct impact on your course performance.<br> These descriptions will help learners decide if your course is right for them.</p> -->
-</div>
 
-   <div class="box-container">
-
-
-   <div class="form1">
-
-  
-       <h3>What will students learn in your course?</h3>
-       <p>You must enter at least 4 learning objectives or outcomes <br> that learners can expect to achieve after completing your course.</p>
-       <input type="text" placeholder="Example: Define the roles and responsibilities of a project manager">
-       <input type="text" placeholder="Example: Estimate project timelines and budgets">
-       <input type="text" placeholder="Example: Identify and manage project risks">
-       <input type="text" placeholder="Example: Complete a case study to manage a project from conception to completion">
+        <h1 class="heading fade-in animate">Plan Your Course</h1>
+        <!-- <p class="heading fade-in animate">The following descriptions will be publicly visible on your Course Landing Page and will have a direct impact on your course performance.<br> These descriptions will help learners decide if your course is right for them.</p> -->
     </div>
 
-    <div class="form2">
-        <h3>What are the requirements or prerequisites for taking your course?</h3>
-        <p>List the required skills, experience, tools or equipment learners should have prior to taking your course.
-            If there are no requirements, use this space as an opportunity to lower the barrier for beginners.</p>
+    <div class="box-container">
 
-            <input type="text" placeholder="Example: No programming experience needed. You will learn everything you need to know">
+
+        <div class="form1">
+
+
+            <h3>What will students learn in your course?</h3>
+            <p>You must enter at least 4 learning objectives or outcomes <br> that learners can expect to achieve after
+                completing your course.</p>
+            <input type="text" class="studentLearn1" placeholder="Example: Define the roles and responsibilities of a project manager">
+            <input type="text" class="studentLearn2" placeholder="Example: Estimate project timelines and budgets">
+            <input type="text" class="studentLearn3" placeholder="Example: Identify and manage project risks">
+            <input type="text" class="studentLearn4"
+                placeholder="Example: Complete a case study to manage a project from conception to completion">
+        </div>
+
+        <div class="form2">
+            <h3>What are the requirements or prerequisites for taking your course?</h3>
+            <p>List the required skills, experience, tools or equipment learners should have prior to taking your
+                course.
+                If there are no requirements, use this space as an opportunity to lower the barrier for beginners.</p>
+
+            <input type="text" class="prerequisites"
+                placeholder="Example: No programming experience needed. You will learn everything you need to know">
+        </div>
+
+        <div class="form3">
+            <h3>Who is this course for?</h3>
+            <p>Write a clear description of the intended learners for your course who will find your course content
+                valuable.
+                This will help you attract the right learners to your course.</p>
+
+            <input type="text" class="coursefor" placeholder="Example: Beginner Python developers curious about data science">
+        </div>
+
+        <div class="form4">
+            <h3>One Last Final Form To Be Filled</h3>
+            <input type="text" class="videotitle" placeholder="Enter Video Title">
+            <input type="text" class="language" placeholder="Enter video Language">
+            <input type="text" class="price" placeholder="Enter value of your course">
+            <input type="text" class="hours" placeholder="How many hours in total video is?">
+            <div class="tooltip">
+                <input type="text" class="videourl" placeholder="Paste the Video URL">
+                <span class="tooltiptext">To upload a video, you have the option to use your own Google Drive or
+                    YouTube. When uploading the video to YouTube, please select the "unlisted" option. Once uploaded,
+                    please submit the accessible link here, ensuring that the link can be accessed by everyone.</span>
+                <input type="text" class="thumbnailurl" placeholder="Paste the thumbnail URL">
+            </div>
+            <a href="https://drive.google.com" class="drive">Visit G-Drive</a>
+            <a href="https://www.youtube.com/">Visit Youtube</a>
+            <select name="" id="category" title="Choose Category">
+                <option value="">Choose Category</option>
+                <option value="development">Development</option>
+                <option value="business">Business</option>
+                <option value="it">IT & Software</option>
+                <option value="personalDevelopment">Personal Development</option>
+                <option value="design">Design</option>
+                <option value="marketing">Marketing</option>
+                <option value="lifestyle">LifeStyle</option>
+                <option value="music">Music</option>
+            </select>
+            <textarea name="description" id="description" cols="30" rows="10"
+                placeholder="Enter Long Description about your course"></textarea>
+
+        </div>
+
     </div>
 
-    <div class="form3">
-        <h3>Who is this course for?</h3>
-        <p>Write a clear description of the intended learners for your course who will find your course content valuable.
-            This will help you attract the right learners to your course.</p>
-
-            <input type="text" placeholder="Example: Beginner Python developers curious about data science">
-    </div>
-
-    <div class="form4">
-        <h3>One Last Final Form To Be Filled</h3>
-       <input type="text" placeholder="Enter Video Title">
-       <input type="text" placeholder="Enter video Language">
-       <input type="text" placeholder="How many hours in total video is?">
-       <div class="tooltip">
-        <input type="text" placeholder="Paste the Video URL">
-        <span class="tooltiptext">To upload a video, you have the option to use your own Google Drive or YouTube.  When uploading the video to YouTube, please select the "unlisted" option. Once uploaded, please submit the accessible link here, ensuring that the link can be accessed by everyone.</span>
-     
-    </div>
-    <a href="https://drive.google.com" class="drive">Visit G-Drive</a>
-    <a href="https://www.youtube.com/">Visit Youtube</a>
-       <select name="" id="" title="Choose Category">
-        <option value="">Choose Category</option>
-        <option value="development">Development</option>
-        <option value="business">Business</option>
-        <option value="it">IT & Software</option>
-        <option value="personalDevelopment">Personal Development</option>
-        <option value="design">Design</option>
-        <option value="marketing">Marketing</option>
-        <option value="lifestyle">LifeStyle</option>
-        <option value="music">Music</option>
-       </select>
-       <textarea name="description" id="" cols="30" rows="10" placeholder="Enter Long Description about your course"></textarea>
-       
-    </div>
-
-  </div>
-    
-  <!-- <a href="./thank.html"> -->
+    <!-- <a href="./thank.html"> -->
     <button class="button" id="continueBtn">Submit</button>
-  <!-- </a> -->
-   
+    <!-- </a> -->
+
 
     <script>
         const inputFields = document.querySelectorAll('input[type="text"], textarea');
         const continueBtn = document.getElementById('continueBtn');
+        const token = JSON.parse(localStorage.getItem("token"))
+
+        const studentLearn1 = document.querySelector(".studentLearn1")
+        const studentLearn2 = document.querySelector(".studentLearn2")
+        const studentLearn3 = document.querySelector(".studentLearn3")
+        const studentLearn4 = document.querySelector(".studentLearn4")
+        const prerequisites = document.querySelector(".prerequisites")
+        const coursefor = document.querySelector(".coursefor")
+        const videotitle = document.querySelector(".videotitle")
+        const language = document.querySelector(".language")
+        const price = document.querySelector(".price")
+        const hours = document.querySelector(".hours")
+        const videourl = document.querySelector(".videourl")
+        const thumbnailurl = document.querySelector(".thumbnailurl")
+        const category = document.querySelector("#category")
+        const description = document.querySelector("#description")
 
         function checkInputFields() {
             let allFilled = true;
@@ -313,7 +341,45 @@
 
         continueBtn.addEventListener('click', function () {
             console.log("Clicked");
-            window.location.href = './thank.html';
+            const obj = {
+                studentLearn1 : studentLearn1.value,
+                studentLearn2 : studentLearn2.value,
+                studentLearn3 : studentLearn3.value,
+                studentLearn4 : studentLearn4.value,
+                prerequisites: prerequisites.value,
+                courseFor: coursefor.value,
+                videoTitle: videotitle.value,
+                videoLanguage:language.value,
+                videoHours: hours.value,
+                videoUrl: videourl.value,
+                price: price.value,
+                videoCategory: category.value,
+                thumbnail: thumbnailurl.value,
+                videoDescription: description.value
+
+            }
+
+
+            fetch("http://localhost:8080/courses/add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": token
+                },
+                body: JSON.stringify(obj)
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    localStorage.setItem("token", JSON.stringify(data.token))
+                    console.log(data)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+
+                alert("course added successfully")
+
+            window.location.href = './index.html';
         });
 
         inputFields.forEach((field) => {
@@ -322,5 +388,5 @@
     </script>
 
 </body>
-</html>
 
+</html>

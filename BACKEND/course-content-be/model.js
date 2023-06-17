@@ -21,6 +21,8 @@ videoHours:String,
 
 videoUrl:String,
 
+price : String,
+
 videoCategory:String,
 
 thumbnail:String,

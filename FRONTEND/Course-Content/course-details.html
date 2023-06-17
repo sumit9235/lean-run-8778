@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Details</title>
+
+  <style>
+    /* Main container */
+    .maindiv {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* Background image */
+    .bgimg {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .bgimg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Image container */
+    .imagediv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 150px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .imagediv img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* Middle content */
+    .middiv {
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .middiv h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .middiv ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .middiv li {
+      margin-bottom: 5px;
+    }
+
+    /* Background image */
+    .bgimg {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .bgimg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Video container */
+    .videoDiv {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+    }
+
+    .videoDiv video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* Text overlay */
+    .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .overlay h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .overlay p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    /* Rest of the CSS styles remain the same */
+
+    .description {
+      margin-top: 20px;
+    }
+
+    .description h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .description p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+
+    /* Category container */
+    .catDiv {
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .catDiv h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .catDiv h4 {
+      margin-bottom: 5px;
+    }
+
+    .catDiv h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    /* Buttons */
+    .button-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+      margin-left: 10px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .edit-course {
+      display: none;
+    }
+
+    .course-details {
+      font-size: 36px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      margin-top: 30px;
+      animation: scaleIn 1s ease-in-out;
+    }
+
+    @keyframes scaleIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* for form div  */
+    #formContainer {
+      margin-bottom: 20px;
+      width: 70%;
+      margin: auto;
+    }
+
+    #formContainer h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    #formContainer p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s;
+      color: #333;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #FF6600;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #FF6600;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+      margin-top: 1em;
+    }
+
+    .button.active {
+      opacity: 1;
+      background-color: #FF6600;
+    }
+
+    .button.active:hover {
+      background-color: darkorange;
+    }
+
+
+    .tooltip {
+      width: 100%;
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 460px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .drive {
+      margin-right: 20px;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+
+    /* fom ended  */
+
+
+    table {
+      width: 70%;
+      margin: auto;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .catDiv {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .videoDiv {
+      position: relative;
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .videoDiv video {
+      width: 100%;
+    }
+
+    .description {
+      margin-top: 20px;
+    }
+
+    .bgimg {
+      position: relative;
+    }
+
+    .imagediv {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .middiv {
+      margin-top: 20px;
+    }
+
+    .fade-in {
+      animation: fade-in 0.5s;
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    #formContainer {
+      display: none;
+      /* Add any additional styling you want */
+    }
+
+
+    /* Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1 class="course-details">Course Details</h1>
+  <h1 class="error-msg"></h1>
+  <div class="button-container">
+    <button class="editbtn" onclick="toggleForm()">Edit</button>
+    <button class="deletebtn">Delete</button>
+  </div>
+
+  <div class="maindiv">
+
+
+
+  </div>
+
+  <div id="formContainer">
+
+
+    <div class="form1">
+
+
+      <h3>What will students learn in your course?</h3>
+      <p>You must enter at least 4 learning objectives or outcomes <br> that learners can expect to achieve after
+        completing your course.</p>
+      <input type="text" class="studentLearn1"
+        placeholder="Example: Define the roles and responsibilities of a project manager">
+      <input type="text" class="studentLearn2" placeholder="Example: Estimate project timelines and budgets">
+      <input type="text" class="studentLearn3" placeholder="Example: Identify and manage project risks">
+      <input type="text" class="studentLearn4"
+        placeholder="Example: Complete a case study to manage a project from conception to completion">
+    </div>
+
+    <div class="form2">
+      <h3>What are the requirements or prerequisites for taking your course?</h3>
+      <p>List the required skills, experience, tools or equipment learners should have prior to taking your
+        course.
+        If there are no requirements, use this space as an opportunity to lower the barrier for beginners.</p>
+
+      <input type="text" class="prerequisites"
+        placeholder="Example: No programming experience needed. You will learn everything you need to know">
+    </div>
+
+    <div class="form3">
+      <h3>Who is this course for?</h3>
+      <p>Write a clear description of the intended learners for your course who will find your course content
+        valuable.
+        This will help you attract the right learners to your course.</p>
+
+      <input type="text" class="coursefor" placeholder="Example: Beginner Python developers curious about data science">
+    </div>
+
+    <div class="form4">
+      <h3>One Last Final Form To Be Filled</h3>
+      <input type="text" class="videotitle" placeholder="Enter Video Title">
+      <input type="text" class="language" placeholder="Enter video Language">
+      <input type="text" class="price" placeholder="Enter value of your course">
+      <input type="text" class="hours" placeholder="How many hours in total video is?">
+      <div class="tooltip">
+        <input type="text" class="videourl" placeholder="Paste the Video URL">
+        <span class="tooltiptext">To upload a video, you have the option to use your own Google Drive or
+          YouTube. When uploading the video to YouTube, please select the "unlisted" option. Once uploaded,
+          please submit the accessible link here, ensuring that the link can be accessed by everyone.</span>
+        <input type="text" class="thumbnailurl" placeholder="Paste the thumbnail URL">
+      </div>
+      <a href="https://drive.google.com" class="drive">Visit G-Drive</a>
+      <a href="https://www.youtube.com/">Visit Youtube</a>
+      <select name="" id="category" title="Choose Category">
+        <option value="">Choose Category</option>
+        <option value="development">Development</option>
+        <option value="business">Business</option>
+        <option value="it">IT & Software</option>
+        <option value="personalDevelopment">Personal Development</option>
+        <option value="design">Design</option>
+        <option value="marketing">Marketing</option>
+        <option value="lifestyle">LifeStyle</option>
+        <option value="music">Music</option>
+      </select>
+      <textarea name="description" id="description" cols="30" rows="10"
+        placeholder="Enter Long Description about your course"></textarea>
+
+    </div>
+
+  </div>
+  <button class="edit-course">Edit Course</button>
+
+  <table id="course-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Hours</th>
+        <th>Language</th>
+        <th>Video Title</th>
+      </tr>
+    </thead>
+    <tbody id="course-table-body"></tbody>
+  </table>
+
+</body>
+
+</html>
+
+
+
+<script>
+
+  const token = JSON.parse(localStorage.getItem("token"));
+  const maindiv = document.querySelector(".maindiv")
+  const tbody = document.querySelector(".tbody")
+  const editCourse = document.querySelector(".edit-course")
+  const id = localStorage.getItem("url")
+  const deletebtn = document.querySelector(".deletebtn")
+  const errorMsg = document.querySelector(".error-msg")
+
+  const studentLearn1 = document.querySelector(".studentLearn1")
+  const studentLearn2 = document.querySelector(".studentLearn2")
+  const studentLearn3 = document.querySelector(".studentLearn3")
+  const studentLearn4 = document.querySelector(".studentLearn4")
+  const prerequisites = document.querySelector(".prerequisites")
+  const coursefor = document.querySelector(".coursefor")
+  const videotitle = document.querySelector(".videotitle")
+  const language = document.querySelector(".language")
+  const price = document.querySelector(".price")
+  const hours = document.querySelector(".hours")
+  const videourl = document.querySelector(".videourl")
+  const thumbnailurl = document.querySelector(".thumbnailurl")
+  const category = document.querySelector("#category")
+  const description = document.querySelector("#description")
+
+  function toggleForm() {
+    var maindiv = document.querySelector(".maindiv");
+    const courseTable = document.getElementById("course-table")
+    var formContainer = document.getElementById("formContainer");
+    maindiv.style.display = "none";
+    formContainer.style.display = "block";
+    courseTable.style.display = "none";
+    editCourse.style.display = "block";
+  }
+
+
+  editCourse.addEventListener("click", (e) => {
+    const obj = {
+      studentLearn1: studentLearn1.value,
+      studentLearn2: studentLearn2.value,
+      studentLearn3: studentLearn3.value,
+      studentLearn4: studentLearn4.value,
+      prerequisites: prerequisites.value,
+      courseFor: coursefor.value,
+      videoTitle: videotitle.value,
+      videoLanguage: language.value,
+      videoHours: hours.value,
+      videoUrl: videourl.value,
+      price: price.value,
+      videoCategory: category.value,
+      thumbnail: thumbnailurl.value,
+      videoDescription: description.value
+
+    }
+
+    fetch(`http://localhost:8080/courses/update/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": token
+                },
+                body: JSON.stringify(obj)
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+
+                alert("course updated successfully")
+
+            window.location.href = './index.html';
+
+  })
+
+
+  deletebtn.addEventListener("click", () => {
+    if (confirm("Are you sure you want to delete this course?")) {
+
+      fetch(`http://localhost:8080/courses/delete/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": token
+                },
+                
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+
+                alert("course Deleted successfully")
+
+                window.location.href = './index.html';
+    }
+  })
+
+  fetch(`http://localhost:8080/courses/getback/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": token
+    }
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data)
+      display(data.msg)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+
+  function display(data) {
+    if(data.length==0){
+      errorMsg.textContent = "No Data Available To Show!"
+    }
+    maindiv.innerHTML = "";
+    let tbody = document.getElementById("course-table-body");
+    tbody.innerHTML = "";
+
+    data.forEach((ele, ind) => {
+      let bgdiv = document.createElement("div");
+      bgdiv.setAttribute("class", "bgimg");
+      let bgimg = document.createElement("img");
+      bgimg.setAttribute(
+        "src",
+        "https://th.bing.com/th/id/OIP.0F30hAdKMAIBQQFw8nsBkgHaEK?w=287&h=180&c=7&r=0&o=5&dpr=2&pid=1.7"
+      );
+      bgdiv.append(bgimg);
+
+      let imagediv = document.createElement("div");
+      imagediv.setAttribute("class", "imagediv");
+      let img = document.createElement("img");
+      img.setAttribute("src", ele.thumbnail);
+      imagediv.append(img);
+
+      let middiv = document.createElement("div");
+      middiv.setAttribute("class", "middiv");
+      let studentlearn = document.createElement("h3");
+      studentlearn.textContent = "What Will You Learn?";
+      let st1main = document.createElement("ul");
+      let st1 = document.createElement("li");
+      let st2 = document.createElement("li");
+      let st3 = document.createElement("li");
+      let st4 = document.createElement("li");
+      st1.textContent = ele.studentLearn1;
+      st2.textContent = ele.studentLearn2;
+      st3.textContent = ele.studentLearn3;
+      st4.textContent = ele.studentLearn4;
+      middiv.append(studentlearn, st1, st2, st3, st4);
+
+      let videoDiv = document.createElement("div");
+      videoDiv.setAttribute("class", "videoDiv");
+      let videoUrl = document.createElement("video");
+      videoUrl.setAttribute("src", ele.videoUrl);
+      videoUrl.setAttribute("controls", "true");
+      videoDiv.append(videoUrl);
+
+      let desdiv = document.createElement("div");
+      desdiv.setAttribute("class", "description");
+      let desh2 = document.createElement("h2")
+      desh2.textContent = "Description"
+      let des = document.createElement("p");
+      des.textContent = ele.videoDescription;
+      desdiv.append(desh2, des);
+
+      let row = document.createElement("tr");
+      let cat = document.createElement("td");
+      cat.textContent = ele.videoCategory;
+      let hours = document.createElement("td");
+      hours.textContent = ele.videoHours;
+      let language = document.createElement("td");
+      language.textContent = ele.videoLanguage;
+      let videoTitle = document.createElement("td");
+      videoTitle.textContent = ele.videoTitle;
+      row.append(cat, hours, language, videoTitle);
+      tbody.append(row);
+
+      let catDiv = document.createElement("div");
+      catDiv.setAttribute("class", "catDiv fade-in");
+      catDiv.append(videoDiv, desdiv);
+
+      maindiv.append(bgdiv, imagediv, middiv, catDiv);
+    });
+  }
+
+
+
+
+</script>
