@@ -56,5 +56,17 @@ instRouter.get("/getback/:id", auth, async(req, res)=>{
     })
 })
 
+instRouter.get("/all",async(req,res)=>{
+    try {
+        const course=await InstModel.find()
+        res.send(course)
+    } catch (error) {
+        res.send(error)
+        console.log(error)
+    }
+
+})
+
+
 
 module.exports = instRouter;
