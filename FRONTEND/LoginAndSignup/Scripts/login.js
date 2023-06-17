@@ -10,6 +10,7 @@ $(".outline").on("click", function (e) {
 			"swing"
 		);
 		$("input[name*='Name']").fadeOut("slow").slideUp("slow");
+		$("select").fadeOut("slow").slideUp("slow");
 		$(".formButton").text("Login");
 		$("#heading").text("Login");
 		// $("#heading").att("Login");
@@ -19,6 +20,7 @@ $(".outline").on("click", function (e) {
 			right: "440px",
 		});
 		$("input[name*='Name']").fadeIn("slow").slideDown("slow");
+		$("select").fadeIn("slow").slideDown("slow");
 		$(".formButton").text("Sign Up");
 		$("#heading").text("Sign Up");
 		// $("#heading").key("Sign Up");

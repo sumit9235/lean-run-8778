@@ -66,11 +66,13 @@ form {
     margin-right: auto;
     box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.3);
 }
+
 form #heading {
     justify-self: flex-start;
 }
 
-input {
+input,
+select {
     width: 360px;
     height: 44px;
     margin: .5em;
@@ -80,6 +82,15 @@ input {
     border-bottom: 2px solid lightgray;
     font-size: 1em;
     margin-bottom: 1em;
+}
+
+select {
+    color: grey;
+}
+
+select>option {
+    /* height: 50px; */
+    color: #394053;
 }
 
 button {
@@ -97,15 +108,17 @@ button.formButton {
     margin-bottom: 80px;
     margin-top: 40px;
 }
-input[type=submit]{
+
+input[type=submit] {
     width: 360px;
-        height: 64px;
-        font-size: 1.2em;
-        outline: none;
-        border: none;
-        color: white;
-        cursor: pointer;
+    height: 64px;
+    font-size: 1.2em;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
+
 .formButton {
     background: tomato;
     font-weight: 500;
@@ -127,7 +140,8 @@ button.outline:hover {
     color: black;
 }
 
-input:focus {
+input:focus,
+select:focus {
     border-bottom: 2px solid rebeccapurple;
 }
 
@@ -139,4 +153,3 @@ form a {
     color: lightgray;
     margin-bottom: 30px;
 }
-
