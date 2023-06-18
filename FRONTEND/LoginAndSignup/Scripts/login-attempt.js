@@ -49,6 +49,6 @@ formBtn.addEventListener("click", (e) => {
 			.then((result) => alert(result.msg))
 			.catch((err) => console.log(err.message));
 	}
-
+	//console.log(formValue)
 	// console.log(formValue, formBtn.textContent);
 });
