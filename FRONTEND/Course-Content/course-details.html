@@ -557,45 +557,91 @@
 
 
   editCourse.addEventListener("click", (e) => {
-    const obj = {
-      studentLearn1: studentLearn1.value,
-      studentLearn2: studentLearn2.value,
-      studentLearn3: studentLearn3.value,
-      studentLearn4: studentLearn4.value,
-      prerequisites: prerequisites.value,
-      courseFor: coursefor.value,
-      videoTitle: videotitle.value,
-      videoLanguage: language.value,
-      videoHours: hours.value,
-      videoUrl: videourl.value,
-      price: price.value,
-      videoCategory: category.value,
-      thumbnail: thumbnailurl.value,
-      videoDescription: description.value
+    const obj = {};
 
+    if (studentLearn1.value.trim() !== '') {
+        obj.studentLearn1 = studentLearn1.value;
     }
 
+    if (studentLearn2.value.trim() !== '') {
+        obj.studentLearn2 = studentLearn2.value;
+    }
+
+    if (studentLearn3.value.trim() !== '') {
+        obj.studentLearn3 = studentLearn3.value;
+    }
+
+    if (studentLearn4.value.trim() !== '') {
+        obj.studentLearn4 = studentLearn4.value;
+    }
+
+    if (prerequisites.value.trim() !== '') {
+        obj.prerequisites = prerequisites.value;
+    }
+
+    if (coursefor.value.trim() !== '') {
+        obj.courseFor = coursefor.value;
+    }
+
+    if (videotitle.value.trim() !== '') {
+        obj.videoTitle = videotitle.value;
+    }
+
+    if (language.value.trim() !== '') {
+        obj.videoLanguage = language.value;
+    }
+
+    if (price.value.trim() !== '') {
+        obj.price = price.value;
+    }
+
+    if (hours.value.trim() !== '') {
+        obj.videoHours = hours.value;
+    }
+
+    if ( videourl.value.trim() !== '') {
+        obj.videoUrl =  videourl.value;
+    }
+
+    if ( thumbnailurl.value.trim() !== '') {
+        obj.thumbnail =  thumbnailurl.value;
+    }
+
+    if ( category.value.trim() !== '') {
+        obj.videoCategory =  category.value;
+    }
+
+    if ( description.value.trim() !== '') {
+        obj.videoDescription =  description.value;
+    }
+    // Repeat the above pattern for all other fields...
+
+    // Check if any field has been updated
+    if (Object.keys(obj).length === 0) {
+        alert("No fields to update");
+        return;
+    }
+
+
     fetch(`http://localhost:8080/courses/update/${id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": token
-                },
-                body: JSON.stringify(obj)
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log(data)
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": token
+        },
+        body: JSON.stringify(obj)
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+        alert("Course updated successfully");
+        window.location.href = './index.html';
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+});
 
-                alert("course updated successfully")
-
-            window.location.href = './index.html';
-
-  })
 
 
   deletebtn.addEventListener("click", () => {
