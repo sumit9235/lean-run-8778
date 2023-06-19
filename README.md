@@ -26,7 +26,7 @@ Learning Point is a dynamic web application that offers a wide range of online c
 - Login
 ![login](https://github.com/sumit9235/lean-run-8778/assets/119393513/284918c5-cbaf-4f2e-b2ec-d8efb57c8572)
 
--Sign Up
+- Sign Up
 ![signup](https://github.com/sumit9235/lean-run-8778/assets/119393513/a95c6e0b-d37f-49f5-86bb-ac1bd0e75c3b)
 
 - Student (Category Videos)
